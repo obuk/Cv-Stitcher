@@ -1,0 +1,78 @@
+# -*- mode: pod; coding: utf-8; tab-width: 4; -*-
+
+=encoding utf8
+
+=head1 Name
+
+Cv::Stitcher::JA - OpenCV Stitcher のラッパー
+
+=head1 SYNOPSIS
+
+  use Cv;
+  use Cv::Stitcher;
+  my $stitcher = Cv::Stitcher->createDefault();
+  my $pano = $stitcher->stitch([map { Cv::Mat->load($_) } @ARGV]);
+  $pano->show;
+  Cv->waitKey;
+
+=head1 DESCRIPTION
+
+OpenCV の Stitcher
+http://docs.opencv.org/trunk/modules/stitching/doc/high_level.html
+のラッパーです。L<Cv> と使ってください。
+
+=head2 メソッド
+
+=over
+
+=item Cv::Stitcher::createDefault(bool try_use_gpu = false)
+
+Cv::Stitcher のインスタンスを返します。
+
+=item Stitcher::stitch(CvArr** images)
+
+画像をステッチします。作成された画像は戻り値で返します。失敗なら内部で
+cvError() を呼ぶ (つまり die する) ので、期待しない終了を防ぐために
+eval { } でエラーを補足してください。
+
+  my $pano = eval {  $stitcher->stitch([@imgs]) };
+
+=back
+
+=head2 エクスポート
+
+ありません。
+
+=head2 バグ
+
+=over
+
+=item *
+
+createDefault() が作れるインスタンスは、1プロセスにつき 1つしかありませ
+ん。
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item L<Cv>
+
+=item L<http://opencv.willowgarage.com/>
+
+=item L<http://github.com/obuk/Cv-Olive>
+
+=back
+
+=head1 LICENCE
+
+Yuta MASUDA E<lt>yuta.masuda@newdaysys.co.jpE<gt>
+
+Copyright (c) 2013 by Yuta MASUDA.
+
+All rights reserved. This program is free software; you can
+redistribute it and/or modify it under the same terms as Perl itself.
+
+=cut

@@ -1,0 +1,13 @@
+Changes
+lib/Cv/Stitcher.pm
+lib/Cv/Stitcher/JA.pod
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+ppport.h
+README
+README.md
+sample/stitching.pl
+Stitcher.xs
+t/Cv-Stitcher.t
+typemap
