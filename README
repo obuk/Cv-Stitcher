@@ -1,8 +1,8 @@
 Cv-Stitcher version 0.01
 =======================
 
-Cv-Stitcher module is a part of OpenCV cv::stitcher, and it works with
-Cv module.
+Cv-Stitcher module is perl interface to OpenCV cv::stitcher, and it
+works with Cv module.
 
 INSTALLATION
 
