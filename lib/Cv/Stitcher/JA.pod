@@ -4,7 +4,7 @@
 
 =head1 Name
 
-Cv::Stitcher::JA - OpenCV Stitcher のラッパー
+Cv::Stitcher::JA - OpenCV cv::stitcher のラッパー
 
 =head1 SYNOPSIS
 
@@ -21,7 +21,7 @@ OpenCV の Stitcher
 http://docs.opencv.org/trunk/modules/stitching/doc/high_level.html
 のラッパーです。L<Cv> と使ってください。
 
-=head2 メソッド
+=head2 METHOD
 
 =over
 
@@ -39,7 +39,7 @@ eval { } でエラーを補足してください。
 
 =back
 
-=head2 エクスポート
+=head2 EXPORT
 
 ありません。
 

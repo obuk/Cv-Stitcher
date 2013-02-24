@@ -1,7 +1,17 @@
 Cv-Stitcher version 0.01
 =======================
 
+Cv-Stitcher module is a part of OpenCV cv::stitcher, and it works with
+Cv module.
+
 INSTALLATION
+
+To install this module type the following:
+
+  $ perl Makefile.PL
+  $ make
+  $ make test
+  $ make install
 
 DEPENDENCIES
 

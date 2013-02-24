@@ -13,10 +13,14 @@ use File::Basename;
 my $imgdir = dirname($0) . "/../sample";
 
 sub wget {
-	my $t = 'https://raw.github.com/Itseez/opencv_extra/master/testdata/';
+	my $wget = "wget --no-check-certificate";
+	my $testdata = 'https://raw.github.com/Itseez/opencv_extra/master/testdata';
 	for (@_) {
-		next if -f "$imgdir/$_";
-		system("wget --no-check-certificate $t/stitching/$_ && mv $_ $imgdir/");
+		unless (-f "$imgdir/$_") {
+			my $url = "$testdata/stitching/$_";
+			my $r = system("$wget $url && mv $_ $imgdir/");
+			die "=" x 20, "\n", "Can't wget $url" if $r;
+		}
 	}
 }
 

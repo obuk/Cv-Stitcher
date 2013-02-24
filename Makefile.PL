@@ -3,7 +3,8 @@
 use 5.008008;
 use ExtUtils::MakeMaker;
 
-use Cv::Config;
+eval "use Cv::Config";
+die "Install Cv before installing this module\n" if $@;
 my $cf = new Cv::Config;
 
 my $PREREQ_PM = {
@@ -15,7 +16,6 @@ if ($^O eq 'cygwin') {
 		%$PREREQ_PM,
 		Cv => 0.25,
 		ExtUtils::MM_Cygwin => 6.62,
-		Test::Number::Delta => 1.03,
 		Test::Exception => 0.31,
 	};
 }
@@ -33,7 +33,6 @@ WriteMakefile(
 	XSOPT => '-C++ -hiertype',
 	TYPEMAPS => [ @{$cf->typemaps}, "typemap" ],
 	CCFLAGS => $cf->ccflags,
-	OPTIMIZE => '-g',
 	clean => {
 		FILES => [ "sample/*png" ],
 	},
