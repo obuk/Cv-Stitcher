@@ -5,34 +5,18 @@ use ExtUtils::MakeMaker;
 
 eval "use Cv::Config";
 die "Install Cv before installing this module\n" if $@;
-my $cf = new Cv::Config;
-
-my $PREREQ_PM = {
-	ExtUtils::ParseXS => 2.22,
-};
-
-if ($^O eq 'cygwin') {
-	$PREREQ_PM = {
-		%$PREREQ_PM,
-		Cv => 0.25,
-		ExtUtils::MM_Cygwin => 6.62,
-		Test::Exception => 0.31,
-	};
-}
+push(@{$Cv::Config::MM{TYPEMAPS}}, "typemap");
 
 WriteMakefile(
 	NAME => 'Cv::Stitcher',
 	VERSION_FROM => 'lib/Cv/Stitcher.pm',
-	PREREQ_PM => $PREREQ_PM,
 	ABSTRACT_FROM => 'lib/Cv/Stitcher.pm',
 	AUTHOR => 'MASUDA Yuta <yuta.cpan@gmail.com>',
 	INC => '-I.',
-	LIBS => $cf->libs,
-	CC => $cf->cc,
-	LD => $cf->cc,
+	PREREQ_PM => { Cv => 0.25 },
+	%PREREQ_PM,
+	%Cv::Config::MM,
 	XSOPT => '-C++ -hiertype',
-	TYPEMAPS => [ @{$cf->typemaps}, "typemap" ],
-	CCFLAGS => $cf->ccflags,
 	clean => {
 		FILES => [ "sample/*png" ],
 	},

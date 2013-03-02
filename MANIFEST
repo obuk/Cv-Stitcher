@@ -6,7 +6,6 @@ MANIFEST
 MANIFEST.SKIP
 ppport.h
 README
-README.md
 sample/stitching.pl
 Stitcher.xs
 t/Cv-Stitcher.t
