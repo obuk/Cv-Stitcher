@@ -1,4 +1,7 @@
 Revision history for Cv.pm
 
+0.03 - 2012-04-03
+     * use Devel::CheckLib to check -lopencv_stitching
+
 0.02 - 2012-03-01
-     * reflects changes in Cv::Config
+     * reflect changes in Cv::Config to Makefile.PL

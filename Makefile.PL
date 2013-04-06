@@ -2,6 +2,11 @@
 
 use 5.008008;
 use ExtUtils::MakeMaker;
+use ExtUtils::PkgConfig;
+
+use lib qw(inc);
+use Devel::CheckLib;
+check_lib_or_exit(lib => 'opencv_stitching');
 
 eval "use Cv::Config";
 die "Install Cv before installing this module\n" if $@;
@@ -14,7 +19,6 @@ WriteMakefile(
 	AUTHOR => 'MASUDA Yuta <yuta.cpan@gmail.com>',
 	INC => '-I.',
 	PREREQ_PM => { Cv => 0.25 },
-	%PREREQ_PM,
 	%Cv::Config::MM,
 	XSOPT => '-C++ -hiertype',
 	clean => {
