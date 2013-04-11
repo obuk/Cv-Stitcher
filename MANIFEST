@@ -1,5 +1,5 @@
 Changes
-inc/lib/Devel/CheckLib.pm
+inc/Devel/CheckLib.pm
 lib/Cv/Stitcher.pm
 lib/Cv/Stitcher/JA.pod
 Makefile.PL
